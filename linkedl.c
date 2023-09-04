@@ -29,6 +29,16 @@ void insertAtEnd(int data) {
 	ptr->link = currentNodePtr;
 }
 
+void deleteNode(int data) {
+	struct Node *ptr = head;
+	struct Node *temp = NULL;
+	while(ptr->link->data != data) {
+		ptr = ptr->link;
+	};
+	temp = ptr->link->link;
+	ptr->link = temp;
+}
+
 void printLinkedList() {
 	printf("---------\n");
 	struct Node *ptr = head;
@@ -49,5 +59,7 @@ void main() {
 			insertAtEnd(i);
 		};
 	};
+	deleteNode(1);
+	deleteNode(9);
 	printLinkedList();
 }
